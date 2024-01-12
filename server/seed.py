@@ -52,23 +52,23 @@ if __name__ == '__main__':
 
         new_joins = [
             StoreHasItem(
-                item_id = new_makeup_items[0],
-                store_id = new_stores[0],
+                item_id = new_makeup_items[0].id,
+                store_id = new_stores[0].id,
                 price = 30.00
             ),
             StoreHasItem(
-                item_id = new_makeup_items[0],
-                store_id = new_stores[1],
+                item_id = new_makeup_items[0].id,
+                store_id = new_stores[1].id,
                 price = 30.00
             ),
             StoreHasItem(
-                item_id = new_makeup_items[1],
-                store_id = new_stores[0],
+                item_id = new_makeup_items[1].id,
+                store_id = new_stores[0].id,
                 price = 14.00
             ),
             StoreHasItem(
-                item_id = new_makeup_items[2],
-                store_id = new_stores[1],
+                item_id = new_makeup_items[2].id,
+                store_id = new_stores[1].id,
                 price = 29.00
             )
         ]
