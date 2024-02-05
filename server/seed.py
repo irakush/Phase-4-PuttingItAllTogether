@@ -2,9 +2,9 @@ from app import app
 
 from models import db, MakeupItem, Store, StoreHasItem
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     with app.app_context():
-        
+
         print("Clearing Out Tables...")
 
         MakeupItem.query.delete()
@@ -15,34 +15,25 @@ if __name__ == '__main__':
 
         new_makeup_items = [
             MakeupItem(
-                name = "SatinAllure Lipstick",
-                brand = "Pat McGrath Labs",
-                type = "lipstick"
+                name="SatinAllure Lipstick", brand="Pat McGrath Labs", type="lipstick"
             ),
             MakeupItem(
-                name = "Mini Soft Pinch Liquid Blush",
-                brand = "Rare Beauty by Selena Gomez",
-                type = "blush"
+                name="Mini Soft Pinch Liquid Blush",
+                brand="Rare Beauty by Selena Gomez",
+                type="blush",
             ),
             MakeupItem(
-                name = "They're Real! Lengthening Mascara",
-                brand = "Benefit Cosmetics",
-                type = "mascara"
-            )
+                name="They're Real! Lengthening Mascara",
+                brand="Benefit Cosmetics",
+                type="mascara",
+            ),
         ]
 
         db.session.add_all(new_makeup_items)
 
         print("Seeding Store model...")
 
-        new_stores = [
-            Store(
-                name = "Sephora"
-            ),
-            Store(
-                name = "Ulta"
-            )
-        ]
+        new_stores = [Store(name="Sephora"), Store(name="Ulta")]
 
         db.session.add_all(new_stores)
 
@@ -52,25 +43,17 @@ if __name__ == '__main__':
 
         new_joins = [
             StoreHasItem(
-                item_id = new_makeup_items[0],
-                store_id = new_stores[0],
-                price = 30.00
+                item_id=new_makeup_items[0].id, store_id=new_stores[0].id, price=30.00
             ),
             StoreHasItem(
-                item_id = new_makeup_items[0],
-                store_id = new_stores[1],
-                price = 30.00
+                item_id=new_makeup_items[0].id, store_id=new_stores[1].id, price=30.00
             ),
             StoreHasItem(
-                item_id = new_makeup_items[1],
-                store_id = new_stores[0],
-                price = 14.00
+                item_id=new_makeup_items[1].id, store_id=new_stores[0].id, price=14.00
             ),
             StoreHasItem(
-                item_id = new_makeup_items[2],
-                store_id = new_stores[1],
-                price = 29.00
-            )
+                item_id=new_makeup_items[2].id, store_id=new_stores[1].id, price=29.00
+            ),
         ]
 
         db.session.add_all(new_joins)
